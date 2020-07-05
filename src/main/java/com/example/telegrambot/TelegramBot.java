@@ -1,22 +1,16 @@
 package com.example.telegrambot;
 
 import com.example.telegrambot.botApi.TelegramFacade;
-import lombok.AccessLevel;
-import lombok.Setter;
-import lombok.experimental.FieldDefaults;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class TelegramBot extends TelegramWebhookBot {
 
   private String botUserName;
   private String botToken;
-  private String botPath;
+  private String webHookPath;
 
   private final TelegramFacade telegramFacade;
 
@@ -42,7 +36,7 @@ public class TelegramBot extends TelegramWebhookBot {
 
   @Override
   public String getBotPath() {
-    return botPath;
+    return webHookPath;
   }
 
   public void setBotUserName(String botUserName) {
@@ -53,7 +47,7 @@ public class TelegramBot extends TelegramWebhookBot {
     this.botToken = botToken;
   }
 
-  public void setBotPath(String botPath) {
-    this.botPath = botPath;
+  public void setWebHookPath(String webHookPath) {
+    this.webHookPath = webHookPath;
   }
 }

@@ -2,18 +2,14 @@ package com.example.telegrambot.botConfig;
 
 import com.example.telegrambot.TelegramBot;
 import com.example.telegrambot.botApi.TelegramFacade;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
-import org.telegram.telegrambots.bots.DefaultBotOptions.ProxyType;
 import org.telegram.telegrambots.meta.ApiContext;
 
 @Setter
@@ -22,8 +18,8 @@ import org.telegram.telegrambots.meta.ApiContext;
 @ConfigurationProperties(prefix = "telegram")
 public class BotConfig {
 
-  private String webHookPath;
   private String botUserName;
+  private String webHookPath;
   private String botToken;
 
   private DefaultBotOptions.ProxyType proxyType;
@@ -41,7 +37,7 @@ public class BotConfig {
     TelegramBot telegramBot = new TelegramBot(options, telegramFacade);
     telegramBot.setBotUserName(botUserName);
     telegramBot.setBotToken(botToken);
-    telegramBot.setBotPath(webHookPath);
+    telegramBot.setWebHookPath(webHookPath);
 
     return telegramBot;
   }
