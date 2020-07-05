@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NewTelegramBotApplication {
+public class Main {
 
   public static void main(String[] args) {
-    SpringApplication.run(NewTelegramBotApplication.class, args);
+    SpringApplication.run(Main.class, args);
   }
-
 }
