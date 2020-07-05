@@ -30,7 +30,7 @@ public class TelegramFacade {
     String result = switch (update.getMessage().getText()) {
       case "/start" -> "Welcome";
       case "/registry" -> registry(update);
-
+      case "/getAllPersons" -> getAllPersons();
       default -> update.getMessage().getText();
     };
     replyMessage.setText(result);
@@ -38,7 +38,10 @@ public class TelegramFacade {
   }
 
   private String registry(Update update) {
-    String answer = botService.registry(update.getMessage().getFrom());
-    return answer;
+    return botService.registry(update.getMessage().getFrom());
+  }
+
+  private String getAllPersons() {
+    return botService.getAllPersons();
   }
 }

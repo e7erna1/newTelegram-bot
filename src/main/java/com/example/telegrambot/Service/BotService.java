@@ -1,8 +1,8 @@
 package com.example.telegrambot.Service;
 
 import com.example.telegrambot.Entity.Person;
-import com.example.telegrambot.Status.SaveStatus;
 import com.example.telegrambot.cache.PersonData;
+import com.example.telegrambot.cache.Status.SaveStatus;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.User;
 
@@ -28,5 +28,17 @@ public class BotService {
     }
   }
 
-
+  public String getAllPersons() {
+    if (personData.getAllPersons() == null || personData.getAllPersons().size() == 0) {
+      return "Список Зарегистрированных пользователей пуст.";
+    } else {
+      StringBuilder result = null;
+      for (Person person : personData.getAllPersons()) {
+        assert false;
+        result.append(person.toString()).append("\n");
+      }
+      assert false;
+      return new String(result);
+    }
+  }
 }

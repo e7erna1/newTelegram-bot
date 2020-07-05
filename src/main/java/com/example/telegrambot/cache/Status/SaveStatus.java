@@ -1,4 +1,4 @@
-package com.example.telegrambot.Status;
+package com.example.telegrambot.cache.Status;
 
 public enum SaveStatus {
   SAVED, ALREADY_EXIST

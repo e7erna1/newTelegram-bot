@@ -4,6 +4,7 @@ import com.example.telegrambot.botApi.TelegramFacade;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
@@ -11,14 +12,13 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TelegramBot extends TelegramWebhookBot {
 
-  String botUserName;
-  String botToken;
-  String botPath;
+  private String botUserName;
+  private String botToken;
+  private String botPath;
 
-  final TelegramFacade telegramFacade;
+  private final TelegramFacade telegramFacade;
 
   public TelegramBot(DefaultBotOptions options, TelegramFacade telegramFacade) {
     super(options);
@@ -32,17 +32,17 @@ public class TelegramBot extends TelegramWebhookBot {
 
   @Override
   public String getBotUsername() {
-    return this.botUserName;
+    return botUserName;
   }
 
   @Override
   public String getBotToken() {
-    return this.botToken;
+    return botToken;
   }
 
   @Override
   public String getBotPath() {
-    return this.botPath;
+    return botPath;
   }
 
   public void setBotUserName(String botUserName) {

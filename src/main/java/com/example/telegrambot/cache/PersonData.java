@@ -1,7 +1,7 @@
 package com.example.telegrambot.cache;
 
 import com.example.telegrambot.Entity.Person;
-import com.example.telegrambot.Status.SaveStatus;
+import com.example.telegrambot.cache.Status.SaveStatus;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

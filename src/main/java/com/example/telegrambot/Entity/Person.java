@@ -12,4 +12,12 @@ public class Person {
   String name;
   String surName;
   String userName;
+
+  @Override
+  public String toString() {
+    return "Person{" +
+        "name='" + name + '\'' +
+        ", surName='" + surName + '\'' +
+        '}';
+  }
 }

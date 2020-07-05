@@ -16,7 +16,8 @@ import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.DefaultBotOptions.ProxyType;
 import org.telegram.telegrambots.meta.ApiContext;
 
-@Data
+@Setter
+@Getter
 @Configuration
 @ConfigurationProperties(prefix = "telegram")
 public class BotConfig {
