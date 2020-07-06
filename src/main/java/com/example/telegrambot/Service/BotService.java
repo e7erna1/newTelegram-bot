@@ -3,6 +3,10 @@ package com.example.telegrambot.Service;
 import com.example.telegrambot.Entity.Person;
 import com.example.telegrambot.cache.PersonData;
 import com.example.telegrambot.cache.Status.SaveStatus;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.User;
 
@@ -28,17 +32,15 @@ public class BotService {
     }
   }
 
-  public String getAllPersons() {
+  public List<String> getAllPersons() {
+    List<String> list = new ArrayList<>();
     if (personData.getAllPersons() == null || personData.getAllPersons().size() == 0) {
-      return "Список Зарегистрированных пользователей пуст.";
+      return Collections.singletonList("Список Зарегистрированных пользователей пуст.");
     } else {
-      StringBuilder result = null;
       for (Person person : personData.getAllPersons()) {
-        assert false;
-        result.append(person.toString()).append("\n");
+        list.add(person.toString());
       }
-      assert false;
-      return new String(result);
     }
+    return list;
   }
 }
